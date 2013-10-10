@@ -1,6 +1,7 @@
 /* 
  * @ name : DaoSkin
  * @ author : laodao
+ * @ email : dao@yiye.me
  * @ introduction : 网页换肤jQuery插件
  * @ time : 2013/10/5
  * 
@@ -17,10 +18,15 @@
           * 不足凑成一页的图片将被排除
           * */
          var imgNum = 0;
+         var bacImgNum = '-1';
          var imgSrc = new Array();
          for( var imgIndex in imgs)
          {
                imgSrc[imgNum] = imgIndex;
+               if(imgIndex === backImg)
+               {
+                  bacImgNum = imgNum; 
+               }
                imgNum++;
          }
          var imgRow = Math.floor(imgNum/6);
@@ -81,7 +87,21 @@
                $('#d-skin-layer').css('display','none');  
          });
          
-         //透明度调节
+         /**
+          * 透明度控制条
+          * 
+          * 具体控制通过moveAjustBtn函数
+          */
+         //初始化透明度
+         if(0<=opacity<=1)
+         {
+             if(ajustFn instanceof Function)
+             {
+                    ajustFn(opacity); 
+                    $('#d-skin-ajust-btn').css('left',Math.round(opacity*100)+'px');
+                    $('#d-skin-ajust-btn em').text(Math.round(opacity*100)+'%');
+             }
+         }
          $('#d-skin-ajust-bar').on('click',function(e){
                moveAjustBtn(this,e);
          });
@@ -108,11 +128,13 @@
           * 渐变时间为1.5秒
           * 
           * 在渐变过程中点击事件被锁定
-          * */
+          * */    
          locked = false;
-         if((backImg !== undefined)&&(backImg !== ''))
+         //初始化背景
+         if((backImg !== undefined)&&(backImg !== '')&&bacImgNum !== '-1')
          {
              $('.d-skin-container').eq(1).css('backgroundImage','url(./bgImg/'+backImg+')');
+             $('#d-skin-imgs-ul li').eq(bacImgNum).addClass('add');
          }
          else
          {
@@ -143,6 +165,10 @@
                              $('.d-skin-container').eq(1).addClass(transitionCss);
                              $('.d-skin-container').eq(1).css({'background-image' : 'url('+$(this).find('img').attr('src')+')'});
                              setTimeout(function(){
+                                   if(backFn instanceof Function)
+                                   {
+                                        backFn($(this).find('img').attr('src'));
+                                   }
                                    $('.d-skin-container').eq(1).removeClass(transitionCss);
                                    unlock();
                              },1500); 
@@ -150,6 +176,19 @@
                      }
                      
                  }); 
+          $('#d-skin-noimg div').click(function(){
+                if(!locked)
+                {
+                        lock();
+                        $('#d-skin-imgs-ul li').removeClass('add');
+                        $('.d-skin-container').eq(1).css({'background-image' : 'none'});
+                        if(backFn instanceof Function)
+                        {
+                                backFn('none');
+                        }          
+                        unlock(); 
+              }
+          });
                  
          //背景渐变过程中的锁函数
          function unlock(){ 
@@ -181,9 +220,8 @@
                $('#d-skin-ajust-btn em').text(btnLeftTxt+'%');
                if(ajustFn instanceof Function)
                {
-                    ajustFn(btnLeftTxt);
+                    ajustFn(btnLeftTxt/100);
                }
-               console.log(btnLeft);
          }
       }
     });

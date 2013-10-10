@@ -5,23 +5,78 @@
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="./DaoSkin.css">
         <style>
-            h1{
+           h1{
                 text-align: center;
                 margin-top: 200px;
                 color: #fff;
+                margin-bottom: 50px;
             }
+	   #change-t{
+		text-align: center;
+	   }
+           #change-t a{
+               display: inline-block;
+               width: 60px;
+               height: 20px;
+               line-height: 20px;
+               border: solid 1px #fff;
+               border-radius: 3px;
+               color: #fff;
+               text-decoration: none;
+               margin-left: 10px;
+           }
+           #change-t a.curent{     
+               border: solid 1px #ff0033;
+               color: #ff0033;
+           }
         </style>
     </head>
     <body>
-        <h1>Hi,换个你喜欢的背景吧</h1>
+        <h1>Hi,选择一个你喜欢的背景更换过渡效果吧</h1>
+		<div id="change-t"><a href="?t=r">圆形</a><a href="?t=w">斜度</a><a href="?t=h">横向</a><a href="?t=v">竖直</a></div>
         <script type="text/javascript" src="./jquery-1.9.1.js"></script>
         <script type="text/javascript" src="./jQuery.DaoSkin.js"></script>
-        <script>
+        <script>    
             $(function(){
+	        //展示图片集
                 var imgs = {'img01.jpg':'图片一','img02.jpg':'图片二','img03.jpg':'图片三','img04.jpg':'图片四','img05.jpg':'图片五','img06.jpg':'图片六','img07.jpg':'图片七','img08.jpg':'图片八','img09.jpg':'图片九','img10.jpg':'图片十','img11.jpg':'图片十一','img12.jpg':'图片十二'};
-                // r:圆形 w：斜度 h：横向 v：竖直
-                $.DaoSkin('','',imgs,function(b){$('h1').css('opacity',b/100)},'r');
+		var t ="r";
+		if(GetQueryString('t'))
+		 {
+			var queryT = GetQueryString('t');
+			if(/^[rwhv]$/.test(queryT))
+			{
+                                t = queryT;
+			}
+                                        
+		 }
+                 var tIndex = new Array();
+                 tIndex['r'] = 0;
+                 tIndex['w'] = 1;
+                 tIndex['h'] = 2;
+                 tIndex['v'] = 3;
+                 $('#change-t a').eq(tIndex[t]).addClass('curent');
+                 /*
+		 * $.DaoSkin(backImg,opacity,imgs,t,backFn,ajustFn)
+		 * 
+		 * 参数设置
+		 *	backImg ：预设的背景图名称，如 img01.jpg 
+		 *	opacity ：预设透明度，0-1之间小数
+		 *	imgs ：展示图片集，格式为{'图片名称':'展示名称', .... }
+		 *	t ：背景图更换时过渡效果 r:圆形 w：斜度 h：横向 v：竖直
+		 *	backFn ：接受新更换背景图片名称作为参数的自定义函数
+		 *      ajustFn ：接受新设置透明度的值作为参数的自定义函数
+		 */
+                 $.DaoSkin('img01.jpg','0.9',imgs,t,function(img){},function(p){$('h1').css('opacity',p)});
+				
             });
+	   function GetQueryString(name) 
+		    { 
+				var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+				var r = window.location.search.substr(1).match(reg); 
+				if (r!==null) return unescape(r[2]);
+				return null; 
+		    }  
         </script>
     </body>
 </html>
