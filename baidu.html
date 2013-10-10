@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DaoSkin</title>
+        <meta charset="UTF-8">
+        <link type="text/css" rel="stylesheet" href="./DaoSkin.css">
+        <style>
+            h1{
+                text-align: center;
+                margin-top: 200px;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Hi,换个你喜欢的背景吧</h1>
+        <script type="text/javascript" src="./jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="./jQuery.DaoSkin.js"></script>
+        <script>
+            $(function(){
+                var imgs = {'img01.jpg':'图片一','img02.jpg':'图片二','img03.jpg':'图片三','img04.jpg':'图片四','img05.jpg':'图片五','img06.jpg':'图片六','img07.jpg':'图片七','img08.jpg':'图片八','img09.jpg':'图片九','img10.jpg':'图片十','img11.jpg':'图片十一','img12.jpg':'图片十二'};
+                // r:圆形 w：斜度 h：横向 v：竖直
+                $.DaoSkin('','',imgs,function(b){$('h1').css('opacity',b/100)},'r');
+            });
+        </script>
+    </body>
+</html>
+

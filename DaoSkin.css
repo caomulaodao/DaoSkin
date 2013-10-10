@@ -1,0 +1,297 @@
+.d-skin-radi {
+	-webkit-mask-image:url('./daoImg/circle_mask.png');
+	-webkit-mask-repeat:no-repeat;
+	-webkit-mask-position:50% 50%;
+	-webkit-mask-size:300%;
+	-webkit-animation:radi 1.5s
+}
+.d-skin-wipe,.d-skin-horizontal {
+	-webkit-animation:wipe 1.5s 1;
+	-webkit-animation-direction:alternate;
+	-webkit-mask-size:3750px 3750px
+}
+.d-skin-vertical {
+	-webkit-animation:verti 1.5s 1;
+	-webkit-animation-direction:alternate;
+	-webkit-mask-size:3750px 3750px
+}
+.d-skin-wipe {
+	-webkit-mask-image:-webkit-gradient(linear,left top,right bottom,color-stop(0.00,rgba(0,0,0,1)),color-stop(0.45,rgba(0,0,0,1)),color-stop(0.50,rgba(0,0,0,0)),color-stop(0.55,rgba(0,0,0,0)),color-stop(1.00,rgba(0,0,0,0)))
+}
+.d-skin-horizontal {
+	-webkit-mask-image:-webkit-gradient(linear,left top,right top,color-stop(0.00,rgba(0,0,0,1)),color-stop(0.35,rgba(0,0,0,1)),color-stop(0.50,rgba(0,0,0,0)),color-stop(0.75,rgba(0,0,0,0)),color-stop(1.00,rgba(0,0,0,0)))
+}
+.d-skin-vertical {
+	-webkit-mask-image:-webkit-gradient(linear,left top,left bottom,color-stop(0.00,rgba(0,0,0,1)),color-stop(0.35,rgba(0,0,0,1)),color-stop(0.50,rgba(0,0,0,0)),color-stop(0.75,rgba(0,0,0,0)),color-stop(1.00,rgba(0,0,0,0)))
+}
+@-webkit-keyframes radi {
+	0% {
+	-webkit-mask-size:60%;
+	-webkit-animation-timing-function:ease-in-out
+}
+100% {
+	-webkit-mask-size:300%
+}
+}@-webkit-keyframes wipe {
+	0% {
+	-webkit-mask-position:-2000px -2000px;
+	-webkit-animation-timing-function:ease-in-out
+}
+100% {
+	-webkit-mask-position:0
+}
+}@-webkit-keyframes verti {
+	0% {
+	-webkit-mask-position:-1600px -1600px;
+	-webkit-animation-timing-function:ease-in-out
+}
+100% {
+	-webkit-mask-position:-1600px -1000px
+}}
+#d-skin-entrance{
+    position: fixed;
+    height: 40px;
+    width: 40px;
+    bottom: 0px;
+    right: 0px;
+}
+#d-skin-entrance a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url(./daoImg/skin.png); 
+    background-repeat: no-repeat;
+    background-position: right -54px;
+    cursor: pointer;
+}
+#d-skin-entrance a:hover{
+    background-position: right top;
+}
+#d-skin-layer{
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 140px;
+    background: url(./daoImg/bottom_bg.png) repeat #000;
+    z-index: 500;
+}
+#d-skin-layer-content{
+    width: 1020px;
+    margin: 0 auto;
+    padding: 12px 43px 0 61px;
+    position: relative;
+}
+#d-skin-title{
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+}
+#d-skin-title em{
+    font-family: Microsoft YaHei,arial,sans-serif;
+    font-size: 18px;
+    color: #A6A6A6;
+    font-style: normal;
+}
+#d-skin-ajust-container{
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    float: right;
+    color: #656565;
+    font-size: 12px;
+    padding-right: 15px;
+}
+#d-skin-ajust-container .d-skin-ajust-work{
+    display: inline-block;
+    margin-right: 5px;
+    color: #A7A7A7;
+}
+#d-skin-ajust-container .d-skin-ajust-work span{
+    color:#7B7B7B;
+}
+#d-skin-ajust-bar{
+    display: inline-block;
+    height: 4px;
+    width: 113px;
+    margin: 0 5px 3px 0;
+    position: relative;
+    cursor: pointer;
+    background: url(./daoImg/ajust_bar.png) no-repeat;
+}
+#d-skin-ajust-btn{
+    position: absolute;
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    top: -6px;
+    left: 100px;
+    cursor: pointer;
+    background: url("./daoImg/ajust_btn.png") no-repeat 0 1px;
+}
+#d-skin-ajust-btn em{
+    left: -6px;
+    top: -16px;
+    position: absolute;
+    font-size: 12px;
+}
+#d-skin-wraper{
+    margin: 0 0 6px;
+    height: 86px;
+}
+#d-skin-noimg{
+    float: left;
+    text-align: center;
+    height: 66px;
+    width: 136px;
+    padding-top: 15px;
+}
+#d-skin-noimg div{
+    width: 120px;
+    height: 60px;
+    background: url('./daoImg/skin.png') no-repeat -227px top;
+    border: 3px solid #3B3B3B;
+    cursor: pointer;
+}
+#d-skin-noimg div:hover{
+    border: 3px solid #909090;
+}
+#d-skin-imgs{
+    width: 884px;
+    height: 81px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+#d-skin-imgs-ul{
+    list-style: none;
+    height: 66px;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+}
+#d-skin-imgs-ul li{
+    position: relative;
+    float: left;
+    text-align: center;
+    height: 66px;
+    width: 146px;
+}
+#d-skin-imgs-ul li img{
+    width: 120px;
+    height: 60px;
+    border: 3px solid #3B3B3B;
+    cursor: pointer; 
+}
+#d-skin-imgs-ul li:hover img{
+    border: 3px solid #909090;
+}
+.d-skin-img-name{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 120px;
+    height: 15px;
+    left: 13px;
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    text-align: center;
+    line-height: 15px;
+    bottom: -15px;
+    cursor: pointer;
+    -webkit-transition: bottom 400ms;
+    -moz-transition: bottom 400ms;
+    -o-transition: bottom 400ms;
+    transition: bottom 400ms;
+}
+#d-skin-imgs-ul li:hover .d-skin-img-name{
+    -webkit-transition: bottom 400ms;
+    -moz-transition: bottom 400ms;
+    -o-transition: bottom 400ms;
+    transition: bottom 400ms;
+    bottom: 3px;
+}
+#d-skin-left{
+    position: absolute;
+    width: 30px;
+    height: 49px;
+    top: 51px;
+    left: 0;
+    padding-top: 17px;
+    cursor: pointer;
+}
+#d-skin-left a{
+    display: inline-block;
+    width: 16px;
+    height: 28px;
+    outline: none;
+    cursor: pointer;
+    background: url('./daoImg/skin.png') no-repeat left top;
+}
+#d-skin-left a:hover{
+    background-position: left -69px;
+}
+#d-skin-right{
+    position: absolute;
+    width: 30px;
+    height: 49px;
+    top: 51px;
+    right: 0;
+    padding-top: 17px;
+    cursor: pointer;
+    text-align: right;
+}
+#d-skin-right a{
+    display: inline-block;
+    width: 16px;
+    height: 28px;
+    outline: none;
+    cursor: pointer;
+    background: url('./daoImg/skin.png') no-repeat -50px top;
+}
+#d-skin-right a:hover{
+    background-position: -50px -69px;
+}
+#d-skin-layer-close{
+    position: absolute;
+    top: 13px;
+    right: 13px
+}
+#d-skin-layer-close a{
+    background: url('./daoImg/skin.png') no-repeat -190px top;
+    width: 14px;
+    height: 14px;
+    outline: none;
+    display: inline-block;
+    cursor: pointer;
+}
+#d-skin-layer-close a:hover{
+    background-position: -190px -43px; 
+}
+.d-skin-add-tag{
+    position: absolute;
+    background: url('./daoImg/skin.png') no-repeat -109px top;
+    width: 34px;
+    height: 34px;
+}
+#d-skin-imgs-ul li.add .d-skin-add-tag{
+    right: -1px;
+    top: -10px;
+}
+.d-skin-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    zoom: 1;
+}
+
+
+
