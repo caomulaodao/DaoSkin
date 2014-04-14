@@ -26,28 +26,31 @@
 }
 @-webkit-keyframes radi {
 	0% {
-	-webkit-mask-size:60%;
-	-webkit-animation-timing-function:ease-in-out
+		-webkit-mask-size:60%;
+		-webkit-animation-timing-function:ease-in-out
+	}
+	100% {
+		-webkit-mask-size:300%
+	}
 }
-100% {
-	-webkit-mask-size:300%
-}
-}@-webkit-keyframes wipe {
+@-webkit-keyframes wipe {
 	0% {
-	-webkit-mask-position:-2000px -2000px;
-	-webkit-animation-timing-function:ease-in-out
+		-webkit-mask-position:-2000px -2000px;
+		-webkit-animation-timing-function:ease-in-out
+	}
+	100% {
+		-webkit-mask-position:0
+	}
 }
-100% {
-	-webkit-mask-position:0
-}
-}@-webkit-keyframes verti {
+@-webkit-keyframes verti {
 	0% {
-	-webkit-mask-position:-1600px -1600px;
-	-webkit-animation-timing-function:ease-in-out
+		-webkit-mask-position:-1600px -1600px;
+		-webkit-animation-timing-function:ease-in-out
+	}
+	100% {
+		-webkit-mask-position:-1600px -1000px
+	}
 }
-100% {
-	-webkit-mask-position:-1600px -1000px
-}}
 #d-skin-entrance{
     position: fixed;
     height: 40px;
