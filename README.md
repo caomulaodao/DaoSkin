@@ -3,7 +3,7 @@ DaoSkin
 
 仿百度首页换肤效果jQuery插件DaoSkin
 
-演示demo：http://laodao.duapp.com/example/baidu/baidu.html
+演示demo服务器到期。直接下载项目源代码运行index.html。
 
 使用方向：
 
